@@ -8,6 +8,20 @@
 
 #include <iostream>
 
+using namespace std;
+
+class SavingsAccount {
+private:
+    int dollars;
+    int cents;
+    
+public:
+    void openAccount(int, int);
+    void makeDeposit(int, int);
+    void makeWithdrawal(int, int);
+    void checkBalance();
+};
+
 int main() {
     
     return 0;
