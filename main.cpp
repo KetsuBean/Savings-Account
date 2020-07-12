@@ -16,25 +16,26 @@ private:
     int cents;
     
 public:
-    void openAccount(int, int);
     void makeDeposit(int, int);
     void makeWithdrawal(int, int);
     void checkBalance();
+    SavingsAccount();
+    SavingsAccount(int, int);
+    ~SavingsAccount();
 };
 
 int main() {
     
     int dollars, cents;
     char choice;
-    SavingsAccount bank1;
     
     cout << "Please input the initial dollars\n";
     cin >> dollars;
-    
     cout << "Please input the inital cents\n";
     cin >> cents;
     
-    bank1.openAccount(dollars, cents);
+    SavingsAccount bank1(dollars, cents);
+    SavingsAccount bank2;
     
     int i = 0;
     
@@ -89,7 +90,10 @@ int main() {
             
         default:
             i = -2;
+            cout << "Bank 1\n";
             bank1.checkBalance();
+            cout << "Bank 2\n";
+            bank2.checkBalance();
             break;
     }
     
@@ -97,10 +101,21 @@ int main() {
     return 0;
 }
 
-void SavingsAccount::openAccount(int d, int c)
+SavingsAccount::SavingsAccount()
+{
+    dollars = 0;
+    cents = 0;
+}
+
+SavingsAccount::SavingsAccount(int d, int c)
 {
     dollars = d;
     cents = c;
+}
+
+SavingsAccount:: ~SavingsAccount()
+{
+    
 }
 
 void SavingsAccount::makeDeposit(int d, int c)
